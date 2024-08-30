@@ -7,50 +7,51 @@ package assignment7;
 import java.util.Arrays;
 import java.util.Scanner;
 
-
 /**
  *
  * @author Admin
  */
 public class InputOuput {
-    public float input(float[] array){
+
+    public float input(float[] array) {
         Scanner sc = new Scanner(System.in);
-        for(int i = 0;i < array.length; i++){
-           array[i] = sc.nextFloat();
+        for (int i = 0; i < array.length; i++) {
+            array[i] = sc.nextFloat();
         }
         return 0;
-        
+
     }
-    public void output(float[] array){
-        
+
+    public void output(float[] array) {
+
         System.out.println("Mang ban vua nhap: ");
-        for(int i = 0;i < array.length; i++){
-            System.out.println("Phan tu thu " + i+1 + " : " + array[i]);
+        for (int i = 0; i < array.length; i++) {
+            System.out.println("Phan tu thu " + i + 1 + " : " + array[i]);
         }
     }
-    public float findMax2(float[] array){
-         float max = array[0];
-      for(int i=1;i < array.length;i++){
-        if(array[i] > max){
-          max = array[i];
-        }
-        
+
+    public float findMax2(float[] array) {
+        Arrays.sort(array);
+        float max2 = array[array.length - 2];
+        System.out.println("MAX 2: " + max2);
+        return max2;
+
     }
-        System.out.println("Max array: " + max);
-        return max;
-}
-   public void deleteOddNumber(float[] array){
-       int length = array.length - 1;
-       for(int i = array.length - 1;i>=0; i--){
-            if(array[i] %2 !=0){
-                
-                array[i] = array[i+1];
-                i--;
-                length --;
-                
+
+    public void deleteOddNumber(float[] array) {
+        int index = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if ((int) array[i] % 2 == 0) {
+                array[index] = array[i];
+                index++;
             }
             
-            System.out.println("Update: " + array[i]);
         }
-   }
+        for (int i = 0; i < index; i++) {
+            System.out.println(array[i]);
+            
+        }
+
+    }
 }
